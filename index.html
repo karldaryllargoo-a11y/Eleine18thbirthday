@@ -1,323 +1,537 @@
 <!DOCTYPE html>
- <html lang="en">
- <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <meta name="description" content="18th Birthday Invitation for Eliene Joy D. Ocprecio with event details, countdown, RSVP, and location map." />
- <title>18th Birthday Invitation</title>
- <script src="https://cdn.tailwindcss.com"></script>
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
- <style>
- :root{
-     --gold:#d4af37;
-     --bg:#050505;
-     --text:#ffffff;
-     --muted:#b7b7b7;
-     --light-text:#8b5c95;
-     --light-bg:#f8f1fb;
- }
- *{ box-sizing:border-box; }
- html{ scroll-behavior:smooth; }
- body{
-     font-family:'Poppins',sans-serif;
-     overflow-x:hidden;
-     background:
-         radial-gradient(circle at top left, rgba(212,175,55,.14), transparent 24%),
-         radial-gradient(circle at top right, rgba(255,255,255,.05), transparent 18%),
-         radial-gradient(circle at bottom right, rgba(212,175,55,.10), transparent 28%),
-         var(--bg);
-     color:var(--text);
-     transition:background .4s ease, color .4s ease;
- }
- .title-font{ font-family:'Cinzel',serif; letter-spacing:.02em; }
- .gold-text{ color:var(--gold); }
- .gold-border{ border-color:var(--gold); }
- .hero-bg{
-     background:
-     radial-gradient(circle at 15% 20%, rgba(212,175,55,.18), transparent 25%),
-     radial-gradient(circle at 85% 15%, rgba(255,255,255,.06), transparent 20%),
-     radial-gradient(circle at 20% 85%, rgba(212,175,55,.12), transparent 22%),
-     linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.88));
-     position:relative;
-     overflow:hidden;
- }
- .hero-bg::before,
- .hero-bg::after{
-     content:'';
-     position:absolute;
-     width:420px;
-     height:420px;
-     border-radius:50%;
-     filter:blur(40px);
-     opacity:.16;
-     background:var(--gold);
-     animation:floatGlow 11s ease-in-out infinite;
- }
- .hero-bg::before{ top:-140px; right:-120px; }
- .hero-bg::after{ bottom:-170px; left:-150px; animation-delay:-5.5s; }
- @keyframes floatGlow{
-     0%,100%{ transform:translateY(0) scale(1); }
-     50%{ transform:translateY(28px) scale(1.08); }
- }
- .fade-up{ animation:fadeUp 1s ease forwards; }
- @keyframes fadeUp{
-     from{ opacity:0; transform:translateY(34px); }
-     to{ opacity:1; transform:translateY(0); }
- }
- .float-slow{ animation:floatSlow 6s ease-in-out infinite; }
- @keyframes floatSlow{
-     0%,100%{ transform:translateY(0px); }
-     50%{ transform:translateY(-10px); }
- }
- .confetti{
-     position:fixed;
-     width:12px;
-     height:18px;
-     top:-24px;
-     z-index:9999;
-     pointer-events:none;
-     animation:fall linear forwards;
- }
- @keyframes fall{
-     to{ transform:translateY(110vh) rotate(720deg); opacity:0.95; }
- }
- .dark-card{
-     background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-     border:1px solid rgba(212,175,55,.16);
-     backdrop-filter:blur(14px);
-     transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-     box-shadow:0 10px 30px rgba(0,0,0,.18);
- }
- .dark-card:hover{
-     transform:translateY(-7px);
-     border-color:rgba(212,175,55,.45);
-     box-shadow:0 22px 50px rgba(0,0,0,.32);
- }
- .count-box{
-     background:linear-gradient(180deg, rgba(212,175,55,.18), rgba(255,255,255,.04));
-     border:1px solid rgba(212,175,55,.22);
-     box-shadow:0 12px 30px rgba(0,0,0,.2);
- }
- .light-mode{
-     background:
-         radial-gradient(circle at top left, rgba(218,142,231,.16), transparent 25%),
-         radial-gradient(circle at bottom right, rgba(218,142,231,.11), transparent 30%),
-         var(--light-bg);
-     color:var(--light-text);
- }
- .light-mode .dark-card,
- .light-mode .count-box{
-     background:rgba(255,255,255,.78);
-     color:var(--light-text);
-     border-color:rgba(218,142,231,.18);
- }
- .light-mode .hero-bg{
-     background:
-     radial-gradient(circle at top right, rgba(218,142,231,.18), transparent 30%),
-     radial-gradient(circle at bottom left, rgba(218,142,231,.12), transparent 30%),
-     linear-gradient(180deg, rgba(255,255,255,.55), rgba(248,241,251,.95));
- }
- .light-mode .gold-text,
- .light-mode .gold-border{
-     color:var(--light-text);
-     border-color:var(--light-text);
- }
- .light-mode footer{ color:#8a5f93; }
- .section-title{
-     position:relative;
-     display:inline-block;
- }
- .section-title::after{
-     content:'';
-     position:absolute;
-     left:50%;
-     bottom:-12px;
-     transform:translateX(-50%);
-     width:86px;
-     height:3px;
-     border-radius:999px;
-     background:var(--gold);
-     opacity:.95;
- }
- .light-mode .section-title::after{ background:var(--light-text); }
- html:not(.light-mode) .soft-text{ color:var(--muted); }
- .light-mode .soft-text{ color:#7f5c88; }
- .pulse-btn{
-     box-shadow:0 0 0 0 rgba(212,175,55,.45);
-     animation:pulse 2.2s infinite;
- }
- @keyframes pulse{
-     0%{ box-shadow:0 0 0 0 rgba(212,175,55,.45); }
-     70%{ box-shadow:0 0 0 14px rgba(212,175,55,0); }
-     100%{ box-shadow:0 0 0 0 rgba(212,175,55,0); }
- }
- .glass-panel{
-     background:rgba(255,255,255,.04);
-     backdrop-filter:blur(14px);
-     border:1px solid rgba(255,255,255,.08);
-     box-shadow:0 18px 40px rgba(0,0,0,.22);
- }
- </style>
- </head>
- <body class="text-white">
- <button id="themeToggle"
- class="fixed top-5 right-5 z-50 px-4 py-2 rounded-full bg-yellow-500 text-black font-semibold shadow-lg transition-transform hover:scale-105"
- aria-label="Toggle theme">
- ☀️
- </button>
- <section id="top" class="hero-bg min-h-screen flex items-center justify-center text-center px-6 pt-24">
- <div class="max-w-4xl fade-up relative z-10">
- <p class="uppercase tracking-[8px] text-gray-300 mb-5 float-slow text-xs md:text-sm">
- You're Invited To Celebrate
- </p>
- <h1 class="title-font text-5xl md:text-8xl gold-text font-bold drop-shadow-lg leading-tight">
- Eliene Joy Ocprecio
- </h1>
- <div class="mt-6 text-2xl md:text-4xl soft-text">
- Turning
- <span class="gold-text font-bold text-5xl md:text-7xl">
- 18th
- </span>
- </div>
- <p class="mt-8 text-lg md:text-xl soft-text max-w-2xl mx-auto leading-relaxed">
- Join us for an unforgettable night of elegance, joy, and celebration.
- </p>
- <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
- <a href="mailto:eorprecioeleinejoy@gmail.com?subject=RSVP%20for%2018th%20Birthday" class="inline-block border-2 border-white/30 px-8 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300 hover:scale-105">
- Send RSVP Email
- </a>
- </div>
- </div>
- </section>
- <section class="py-16 px-6 text-center">
- <h2 class="title-font text-4xl section-title gold-text mb-12">
- Countdown to the Party
- </h2>
- <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-5xl mx-auto"></div>
- </section>
- <section id="details" class="py-20 px-6">
- <div class="max-w-5xl mx-auto">
- <h2 class="title-font text-5xl section-title gold-text text-center mb-16">
- Event Details
- </h2>
- <div class="grid md:grid-cols-2 gap-8">
- <div class="dark-card p-8 rounded-3xl shadow-lg">
- <h3 class="text-2xl font-bold mb-4">📅 Date & Time</h3>
- <p><strong>Date:</strong> Saturday, June 27, 2026</p>
- <p><strong>Time:</strong> 3:00 PM – 11:00 PM</p>
- </div>
- <div class="dark-card p-8 rounded-3xl shadow-lg">
- <h3 class="text-2xl font-bold mb-4">📍 Venue</h3>
- <p>MGGQ+H2J</p>
- <p>City of Santiago, Isabela</p>
- </div>
- <div class="dark-card p-8 rounded-3xl shadow-lg">
- <h3 class="text-2xl font-bold mb-4">👗 Dress Code</h3>
- <p>Formal/Casual Attire Black & Gray</p>
- </div>
- <div class="dark-card p-8 rounded-3xl shadow-lg">
- <h3 class="text-2xl font-bold mb-4">🎁 Gifts</h3>
- <p>Your presence is the greatest gift!</p>
- </div>
- </div>
- </div>
- </section>
- <section id="location" class="py-20 px-6 text-center">
- <h2 class="title-font text-5xl section-title gold-text mb-12">
- Location
- </h2>
- <div class="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/10 glass-panel">
- <iframe
- class="w-full h-[420px]"
- title="Event location map"
- loading="lazy"
- referrerpolicy="no-referrer-when-downgrade"
- src="https://maps.google.com/maps?q=MGGQ%2BH2J%2C%20City%20of%20Santiago%2C%20Isabela&t=&z=15&ie=UTF8&iwloc=&output=embed">
- </iframe>
- </div>
- <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
- <a href="https://maps.google.com/?q=MGGQ+H2J,+City+of+Santiago,+Isabela" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-500 text-black px-8 py-3 rounded-full font-bold hover:scale-105 transition">
- Open in Google Maps
- </a>
- <a href="https://www.google.com/maps/dir/?api=1&destination=MGGQ%2BH2J%2C%20City%20of%20Santiago%2C%20Isabela" target="_blank" rel="noopener noreferrer" class="inline-block border-2 border-white/30 px-8 py-3 rounded-full hover:bg-white hover:text-black transition">
- Get Directions
- </a>
- </div>
- </section>
- <section id="rsvp" class="py-20 px-6 text-center">
- <h2 class="title-font text-5xl section-title gold-text mb-8">
- RSVP
- </h2>
- <p class="mb-8 text-lg soft-text">
- Please confirm your attendance.
- </p>
- <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
- <button id="rsvpBtn" class="bg-yellow-500 text-black px-10 py-4 rounded-full font-bold hover:scale-105 transition-all duration-300 pulse-btn">
- Confirm Attendance
- </button>
- <a href="mailto:eorprecioeleinejoy@gmail.com?subject=RSVP%20Confirmation&body=I%20will%20attend%20the%2018th%20Birthday%20celebration." class="border-2 border-white/30 px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all duration-300">
- RSVP by Email
- </a>
- </div>
- <p id="rsvpMessage" class="mt-6 text-green-400 font-semibold" aria-live="polite"></p>
- </section>
- <footer class="py-10 text-center soft-text">
- <p class="title-font text-xl gold-text mb-2">With Love & Celebration</p>
- <p>We look forward to celebrating with you.</p>
- </footer>
- <script>
- const countdownEl = document.getElementById('countdown');
- const rsvpBtn = document.getElementById('rsvpBtn');
- const rsvpMessage = document.getElementById('rsvpMessage');
- const themeToggle = document.getElementById('themeToggle');
- const colors = ['#d4af37', '#ffffff', '#f4d97a', '#da8ee7'];
- const targetDate = new Date('2026-06-27T15:00:00').getTime();
- function createConfetti() {
-     for (let i = 0; i < 24; i++) {
-         const confetti = document.createElement('div');
-         confetti.className = 'confetti';
-         confetti.style.left = `${Math.random() * 100}vw`;
-         confetti.style.background = colors[(Math.random() * colors.length) | 0];
-         confetti.style.transform = `translateY(0) rotate(${Math.random() * 180}deg)`;
-         confetti.style.animationDuration = `${2.5 + Math.random() * 2.5}s`;
-         confetti.style.opacity = 0.6 + Math.random() * 0.4;
-         document.body.appendChild(confetti);
-         setTimeout(() => confetti.remove(), 5500);
-     }
- }
- function updateCountdown() {
-     const distance = targetDate - Date.now();
-     if (distance <= 0) {
-         countdownEl.innerHTML = `<div class="col-span-full text-2xl gold-text font-semibold">It's party time!</div>`;
-         return;
-     }
-     const units = [
-         ['Days', Math.floor(distance / 86400000)],
-         ['Hours', Math.floor((distance % 86400000) / 3600000)],
-         ['Minutes', Math.floor((distance % 3600000) / 60000)],
-         ['Seconds', Math.floor((distance % 60000) / 1000)]
-     ];
-     countdownEl.innerHTML = units.map(([label, value]) => `
-         <div class="count-box rounded-3xl p-6 md:p-8">
-             <div class="text-4xl md:text-6xl font-bold gold-text">${String(value).padStart(2, '0')}</div>
-             <div class="mt-3 text-sm md:text-base uppercase tracking-[4px] soft-text">${label}</div>
-         </div>
-     `).join('');
- }
- function setTheme(isLight) {
-     document.body.classList.toggle('light-mode', isLight);
-     themeToggle.textContent = isLight ? '🌙' : '☀️';
-     localStorage.setItem('theme', isLight ? 'light' : 'dark');
- }
- themeToggle.addEventListener('click', () => setTheme(!document.body.classList.contains('light-mode')));
- rsvpBtn.addEventListener('click', () => {
-     rsvpMessage.textContent = 'Thank you for confirming your attendance!';
-     createConfetti();
- });
- setTheme(localStorage.getItem('theme') === 'light');
- updateCountdown();
- setInterval(updateCountdown, 1000);
- </script>
- </body>
- </html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <meta name="description" content="18th Birthday Invitation for Eleine Joy Domingo Ocprecio with event details, countdown, RSVP, and location map." />
+  <title>Eleine Joy Domingo Ocprecio | 18th Birthday</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f0d57a;
+      --bg: #050505;
+      --text: #ffffff;
+      --muted: #b7b7b7;
+      --light-text: #5b3e63;
+      --light-bg: #faf5fc;
+      --card-dark-bg: rgba(255, 255, 255, 0.04);
+      --glass-border: rgba(212, 175, 55, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      background: radial-gradient(circle at top left, rgba(212, 175, 55, .11), transparent 24%),
+        radial-gradient(circle at top right, rgba(255, 255, 255, .04), transparent 18%),
+        radial-gradient(circle at bottom right, rgba(212, 175, 55, .08), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      transition: background .5s ease, color .5s ease;
+      margin: 0;
+    }
+
+    .title-font {
+      font-family: 'Cinzel', serif;
+      letter-spacing: .03em;
+    }
+
+    .gold-text {
+      color: var(--gold);
+    }
+
+    .gold-border {
+      border-color: var(--gold);
+    }
+
+    /* Loading Screen */
+    #loadingScreen {
+      position: fixed;
+      inset: 0;
+      background: #050505;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    .loader-gold {
+      width: 60px;
+      height: 60px;
+      border: 3px solid rgba(212, 175, 55, 0.2);
+      border-top: 3px solid var(--gold);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Hero Parallax */
+    .hero-bg {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 15% 20%, rgba(212, 175, 55, .16), transparent 25%),
+        radial-gradient(circle at 85% 15%, rgba(255, 255, 255, .05), transparent 20%),
+        radial-gradient(circle at 20% 85%, rgba(212, 175, 55, .1), transparent 22%),
+        linear-gradient(180deg, rgba(0, 0, 0, .25), rgba(0, 0, 0, .92));
+    }
+
+    .hero-bg::before,
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: .12;
+      background: var(--gold);
+      animation: floatGlow 12s ease-in-out infinite;
+    }
+
+    .hero-bg::before {
+      top: -160px;
+      right: -140px;
+    }
+
+    .hero-bg::after {
+      bottom: -180px;
+      left: -160px;
+      animation-delay: -6s;
+    }
+
+    @keyframes floatGlow {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(35px) scale(1.1); }
+    }
+
+    /* Particles Canvas */
+    #particlesCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Glass Card */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(212, 175, 55, 0.45);
+      box-shadow: 0 28px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .count-flip {
+      background: linear-gradient(180deg, rgba(212, 175, 55, 0.15), rgba(255, 255, 255, 0.03));
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      perspective: 800px;
+    }
+
+    .light-mode body,
+    body.light-mode {
+      background: radial-gradient(circle at top left, rgba(218, 142, 231, .12), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(218, 142, 231, .08), transparent 30%),
+        var(--light-bg);
+      color: var(--light-text);
+    }
+
+    .light-mode .glass-card,
+    body.light-mode .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--light-text);
+      border-color: rgba(218, 142, 231, 0.2);
+    }
+
+    .light-mode .gold-text {
+      color: #8a5da0;
+    }
+
+    .section-divider {
+      height: 2px;
+      width: 80px;
+      background: var(--gold);
+      margin: 0 auto 2.5rem;
+      opacity: 0.7;
+      border-radius: 2px;
+    }
+
+    .light-mode .section-divider {
+      background: var(--light-text);
+    }
+
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Back to Top */
+    #backToTop {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 80;
+      background: rgba(212, 175, 55, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: 0.3s;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    #backToTop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Confetti */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 16px;
+      top: -20px;
+      z-index: 9999;
+      animation: fall linear forwards;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(720deg); opacity: 0.8; }
+    }
+
+    /* Pulse Button */
+    .pulse-btn {
+      box-shadow: 0 0 0 0 rgba(212,175,55,0.5);
+      animation: pulse 2.2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(212,175,55,0.5); }
+      70% { box-shadow: 0 0 0 18px rgba(212,175,55,0); }
+      100% { box-shadow: 0 0 0 0 rgba(212,175,55,0); }
+    }
+
+    .active {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  </style>
+</head>
+<body class="text-white">
+
+  <!-- Loading Screen -->
+  <div id="loadingScreen">
+    <div class="loader-gold"></div>
+  </div>
+
+  <!-- Animated Particles -->
+  <canvas id="particlesCanvas"></canvas>
+
+  <!-- Back to Top -->
+  <div id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Back to top">↑</div>
+
+  <!-- Theme Toggle -->
+  <button id="themeToggle"
+    class="fixed top-5 right-5 z-50 px-5 py-2.5 rounded-full bg-yellow-500/20 backdrop-blur-md border border-yellow-500/40 text-white font-semibold shadow-xl transition hover:scale-105"
+    aria-label="Toggle between dark and light theme">
+    ☀️
+  </button>
+
+  <!-- Hero Section with Parallax -->
+  <section id="top" class="hero-bg min-h-screen flex items-center justify-center text-center px-6 pt-24 relative z-10">
+    <div class="max-w-5xl mx-auto fade-up-animated relative z-20">
+      <p class="uppercase tracking-[10px] text-gray-300 mb-6 text-xs md:text-sm animate-fade-in">
+        You're Invited To Celebrate
+      </p>
+      <h1 class="title-font text-6xl md:text-9xl gold-text font-extrabold drop-shadow-2xl leading-tight name-reveal">
+        Eleine Joy <br class="md:hidden"> Domingo <br class="hidden md:block"> Ocprecio
+      </h1>
+      <div class="mt-6 text-2xl md:text-4xl text-gray-300">
+        Turning
+        <span class="gold-text font-bold text-6xl md:text-8xl">18th</span>
+      </div>
+      <p class="mt-8 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
+        Join us for an unforgettable night of elegance, joy, and celebration.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4 justify-center">
+        <a href="mailto:eorprecioeleinejoy@gmail.com?subject=RSVP%20for%2018th%20Birthday" class="border-2 border-white/30 px-8 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300 hover:scale-105">
+          Send RSVP Email
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Countdown Section -->
+  <section class="py-20 px-6 text-center relative z-10 fade-in-section">
+    <h2 class="title-font text-4xl md:text-5xl gold-text mb-4">Countdown to the Party</h2>
+    <div class="section-divider"></div>
+    <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-5xl mx-auto mt-10"></div>
+  </section>
+
+  <!-- Event Details -->
+  <section id="details" class="py-20 px-6 relative z-10 fade-in-section">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="title-font text-5xl gold-text text-center mb-6">Event Details</h2>
+      <div class="section-divider"></div>
+      <div class="grid md:grid-cols-2 gap-8 mt-12">
+        <div class="glass-card p-8 rounded-3xl">
+          <h3 class="text-2xl font-bold mb-4">📅 Date & Time</h3>
+          <p><strong>Date:</strong> Saturday, June 27, 2026</p>
+          <p><strong>Time:</strong> 3:00 PM – 11:00 PM</p>
+        </div>
+        <div class="glass-card p-8 rounded-3xl">
+          <h3 class="text-2xl font-bold mb-4">📍 Venue</h3>
+          <p>MGGQ+H2J, City of Santiago, Isabela</p>
+        </div>
+        <div class="glass-card p-8 rounded-3xl">
+          <h3 class="text-2xl font-bold mb-4">👗 Dress Code</h3>
+          <p>Formal/Casual Attire – Black & Gray</p>
+        </div>
+        <div class="glass-card p-8 rounded-3xl">
+          <h3 class="text-2xl font-bold mb-4">🎁 Gifts</h3>
+          <p>Your presence is the greatest gift!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Section -->
+  <section class="py-20 px-6 text-center relative z-10 fade-in-section">
+    <div class="max-w-3xl mx-auto glass-card p-10 rounded-3xl italic text-xl">
+      "The future belongs to those who believe in the beauty of their dreams."
+      <div class="mt-4 gold-text font-bold">– Eleanor Roosevelt</div>
+    </div>
+  </section>
+
+  <!-- Location Map -->
+  <section id="location" class="py-20 px-6 text-center relative z-10 fade-in-section">
+    <h2 class="title-font text-5xl gold-text mb-6">Location</h2>
+    <div class="section-divider"></div>
+    <div class="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/10 glass-card">
+      <iframe class="w-full h-[420px]" title="Event location" loading="lazy"
+        src="https://maps.google.com/maps?q=MGGQ%2BH2J%2C%20City%20of%20Santiago%2C%20Isabela&t=&z=15&ie=UTF8&iwloc=&output=embed">
+      </iframe>
+    </div>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <a href="https://maps.google.com/?q=MGGQ+H2J,+City+of+Santiago,+Isabela" target="_blank" class="bg-yellow-500 text-black px-8 py-3 rounded-full font-bold hover:scale-105 transition">Open in Maps</a>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=MGGQ%2BH2J%2C%20City%20of%20Santiago%2C%20Isabela" target="_blank" class="border-2 border-white/30 px-8 py-3 rounded-full hover:bg-white hover:text-black transition">Get Directions</a>
+    </div>
+  </section>
+
+  <!-- RSVP Section -->
+  <section id="rsvp" class="py-20 px-6 text-center relative z-10 fade-in-section">
+    <h2 class="title-font text-5xl gold-text mb-6">RSVP</h2>
+    <div class="section-divider"></div>
+    <p class="mb-8 text-lg text-gray-300">Please confirm your attendance.</p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <button id="rsvpBtn" class="bg-yellow-500 text-black px-10 py-4 rounded-full font-bold hover:scale-105 transition pulse-btn">Confirm Attendance</button>
+      <a href="mailto:eorprecioeleinejoy@gmail.com?subject=RSVP%20Confirmation" class="border-2 border-white/30 px-8 py-4 rounded-full hover:bg-white hover:text-black transition">RSVP by Email</a>
+    </div>
+    <p id="rsvpMessage" class="mt-6 text-green-400 font-semibold" aria-live="polite"></p>
+  </section>
+
+  <!-- RSVP Modal -->
+  <div id="rsvpModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center opacity-0 invisible transition">
+    <div class="glass-card p-10 rounded-3xl text-center max-w-md">
+      <h3 class="text-3xl gold-text font-bold mb-4">🎉 Thank You!</h3>
+      <p>Your attendance has been confirmed. We can't wait to celebrate with you!</p>
+      <button onclick="closeModal()" class="mt-6 bg-yellow-500 text-black px-6 py-2 rounded-full">Close</button>
+    </div>
+  </div>
+
+  <!-- Luxury Footer -->
+  <footer class="py-14 text-center relative z-10 fade-in-section border-t border-white/5">
+    <p class="title-font text-3xl gold-text mb-4">With Love & Celebration</p>
+    <p class="text-gray-300">Eleine Joy Domingo Ocprecio · 18th Birthday</p>
+    <div class="flex justify-center gap-6 mt-6 text-sm text-gray-400">
+      <a href="mailto:eorprecioeleinejoy@gmail.com" class="hover:text-gold transition">Contact</a>
+      <span>|</span>
+      <span>© 2026 All rights reserved</span>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // Loading screen
+      window.addEventListener('load', () => {
+        const loader = document.getElementById('loadingScreen');
+        if (loader) {
+          loader.style.opacity = '0';
+          loader.style.visibility = 'hidden';
+        }
+      });
+
+      // Particles
+      const canvas = document.getElementById('particlesCanvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+      
+      class Particle {
+        constructor() {
+          this.reset();
+        }
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 2.5 + 0.8;
+          this.speedY = Math.random() * 0.4 + 0.1;
+          this.opacity = Math.random() * 0.5 + 0.2;
+        }
+        update() {
+          this.y -= this.speedY;
+          if (this.y < -10) {
+            this.y = canvas.height + 10;
+            this.x = Math.random() * canvas.width;
+          }
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(212,175,55,${this.opacity})`;
+          ctx.shadowColor = 'rgba(212,175,55,0.6)';
+          ctx.shadowBlur = 6;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+        }
+      }
+      
+      for (let i = 0; i < 70; i++) particles.push(new Particle());
+      
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(animateParticles);
+      }
+      animateParticles();
+
+      // Countdown with flip style
+      const targetDate = new Date('2026-06-27T15:00:00').getTime();
+      function updateCountdown() {
+        const distance = targetDate - Date.now();
+        const el = document.getElementById('countdown');
+        if (distance <= 0) {
+          el.innerHTML = `<div class="col-span-full text-3xl gold-text font-bold">It's party time!</div>`;
+          return;
+        }
+        const units = [
+          ['Days', Math.floor(distance / 86400000)],
+          ['Hours', Math.floor((distance % 86400000) / 3600000)],
+          ['Minutes', Math.floor((distance % 3600000) / 60000)],
+          ['Seconds', Math.floor((distance % 60000) / 1000)]
+        ];
+        el.innerHTML = units.map(([label, val]) => `
+          <div class="count-flip rounded-3xl p-6 md:p-8">
+            <div class="text-5xl md:text-7xl font-extrabold gold-text">${String(val).padStart(2,'0')}</div>
+            <div class="mt-3 uppercase tracking-[4px] text-sm text-gray-300">${label}</div>
+          </div>
+        `).join('');
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // Theme toggle
+      const themeBtn = document.getElementById('themeToggle');
+      function setTheme(isLight) {
+        document.body.classList.toggle('light-mode', isLight);
+        themeBtn.innerHTML = isLight ? '🌙' : '☀️';
+        themeBtn.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      }
+      themeBtn.addEventListener('click', () => setTheme(!document.body.classList.contains('light-mode')));
+      setTheme(localStorage.getItem('theme') === 'light');
+
+      // RSVP with confetti + modal (max 90 confetti active at once)
+      const rsvpBtn = document.getElementById('rsvpBtn');
+      const rsvpMsg = document.getElementById('rsvpMessage');
+      const modal = document.getElementById('rsvpModal');
+      window.closeModal = () => modal.classList.remove('active');
+      
+      const MAX_CONFETTI = 90;
+      function createConfetti() {
+        const currentConfetti = document.querySelectorAll('.confetti').length;
+        const toCreate = Math.min(30, MAX_CONFETTI - currentConfetti);
+        for (let i = 0; i < toCreate; i++) {
+          const conf = document.createElement('div');
+          conf.className = 'confetti';
+          conf.style.left = Math.random() * 100 + 'vw';
+          conf.style.background = ['#d4af37','#fff','#f0d57a'][Math.floor(Math.random()*3)];
+          conf.style.animationDuration = 2 + Math.random() * 3 + 's';
+          document.body.appendChild(conf);
+          setTimeout(() => conf.remove(), 5000);
+        }
+      }
+      
+      rsvpBtn.addEventListener('click', () => {
+        rsvpMsg.textContent = 'Thank you for confirming!';
+        modal.classList.add('active');
+        createConfetti();
+      });
+
+      // Scroll reveal
+      const sections = document.querySelectorAll('.fade-in-section');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.15 });
+      sections.forEach(s => observer.observe(s));
+
+      // Back to top
+      const backBtn = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => {
+        backBtn.classList.toggle('show', window.scrollY > 500);
+      });
+
+    })();
+  </script>
+</body>
+</html>
